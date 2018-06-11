@@ -45,6 +45,20 @@ public class Cliente implements Serializable{
 		this.cuentas=new ArrayList<>();
 	}
 
+	
+	
+	public String getClave() {
+		return clave;
+	}
+
+
+
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
+
+
+
 	public Long getId() {
 		return id;
 	}
