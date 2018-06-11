@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="UTF-8" />
+<title th:text="'Spring Boot: MVC + Thymeleaf + Data JPA - ' + ${titulo}"></title>
+<link rel="stylesheet"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet"
+	th:href="@{/css/jquery-ui.min.css}" />
+</head>
+<body>
+	<div class="container py-4">
+	
+		<div class="card-header" >
+			<h3>Nueva cuenta</h3>
+		</div>
+		<div class="card-body">
+			
+				<form th:action="@{/nuevacuenta}" th:object="${cuenta}" method="post">
+					<div class="form-group row">
+						<label for="banco" class="col-sm-2 col-form-label">Banco</label>
+						    <select th:field="*{banco}" class="form-control" >
+						      <option value ="BCP">BCP</option>
+						      <option value ="BBVA">BBVA</option>
+						      <option value ="Sctoiabank">Sctoiabank</option>
+						      <option value ="Interbank">Interbank</option>
+						      <option value ="BanBif">BanBif</option>
+				     	</select>
+					</div>
+					
+					<div class="form-group row">
+						<label for="apellido" class="col-sm-2 col-form-label">Nro cuenta</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{nroCuenta}" class="form-control"
+								 /> 
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="dni" class="col-sm-2 col-form-label">Saldo</label>
+						<div class="col-sm-6">
+							<input type="number" th:field="*{saldo}" class="form-control"
+								 /> 
+						</div>
+					</div>
+					
+					
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<input type="submit" 
+								class="btn btn-secondary" />
+						</div>
+					</div>
+				</form>
+			
+			
+			
+		</div>
+	
+	</div>
+	
+</body>
+</html>

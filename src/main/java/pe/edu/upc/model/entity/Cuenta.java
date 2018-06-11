@@ -29,10 +29,13 @@ public class Cuenta implements Serializable{
 	private String nroCuenta;
 	
 	@NotNull
-	private String estado;
+	private String banco;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Cliente cliente;
+	
+	@NotNull
+	private double saldo;
 	
 	@OneToMany(mappedBy="cuenta")
 	private List<Movimiento>movimientos;
@@ -41,6 +44,17 @@ public class Cuenta implements Serializable{
 	public Cuenta() {
 		this.movimientos=new ArrayList<>();
 	}
+
+	
+	public double getSaldo() {
+		return saldo;
+	}
+
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
 
 	public List<Movimiento> getMovimientos() {
 		return movimientos;
@@ -66,12 +80,12 @@ public class Cuenta implements Serializable{
 		this.nroCuenta = nroCuenta;
 	}
 
-	public String getEstado() {
-		return estado;
+	public String getBanco() {
+		return banco;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setBanco(String banco) {
+		this.banco = banco;
 	}
 
 	public Cliente getCliente() {

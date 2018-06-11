@@ -10,6 +10,6 @@ public interface ICuentaService {
 	public void deleteById(Long id);
 	public List<Cuenta>findAll();
 	public Cuenta findCuentaById(Long id);
-	
+	public List<Cuenta> listCuentaByCliente(Long id);
 }
 

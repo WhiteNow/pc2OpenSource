@@ -44,6 +44,12 @@ public class CuentaService implements ICuentaService {
 		return dao.findById(id).orElse(null);
 	}
 
+	@Override
+	public List<Cuenta> listCuentaByCliente(Long id) {
+		// TODO Auto-generated method stub
+		return dao.listCuentaByCliente(id);
+	}
+
 }
 
 

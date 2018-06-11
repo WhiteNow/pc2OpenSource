@@ -20,6 +20,7 @@ public class MovimientoService implements IMovimientoService {
 	@Transactional
 	public void save(Movimiento movimiento) {
 		// TODO Auto-generated method stub
+		this.actualizarSaldo(movimiento);
 		dao.save(movimiento);
 	}
 
@@ -44,5 +45,24 @@ public class MovimientoService implements IMovimientoService {
 		return dao.findById(id).orElse(null);
 	}
 
+	private void actualizarSaldo(Movimiento movimiento) {
+		if(movimiento.getTipo().equalsIgnoreCase("Retiro")) {
+			double monto = movimiento.getMonto();
+			double saldoAnterior = movimiento.getCuenta().getSaldo();
+			movimiento.getCuenta().setSaldo(saldoAnterior - monto);
+		}else {
+			if(movimiento.getTipo().equalsIgnoreCase("Deposito")) {
+				double monto = movimiento.getMonto();
+				double saldoAnterior = movimiento.getCuenta().getSaldo();
+				movimiento.getCuenta().setSaldo(saldoAnterior + monto);
+			}
+		}
+	}
+
+	@Override
+	public List<Movimiento> listMovimientoByCuenta(Long id) {
+		// TODO Auto-generated method stub
+		return dao.listMovimientoByCuenta(id);
+	}
 }
 

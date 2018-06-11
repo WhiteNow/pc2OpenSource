@@ -10,6 +10,6 @@ public interface IMovimientoService {
 	public void deleteById(Long id);
 	public List<Movimiento>findAll();
 	public Movimiento findMovimientoById(Long id);
-	
+	public List<Movimiento> listMovimientoByCuenta(Long id);
 }
 
